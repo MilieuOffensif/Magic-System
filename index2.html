@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>magic system</title>
+    <link rel="stylesheet" href="html2print.css">
+    <link rel="stylesheet" href="html2print-sarah.css">
+</head>
+
+<body>
+    <div class="pages">
+    </div>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script>
+        i = 0;
+        n = 20;
+        var ids = [];
+        for (i = 0; i < n; i++) {
+            var page = document.createElement('div');
+            page.className = 'page';
+            document.getElementsByClassName('pages')[0].appendChild(page);
+
+
+            //            for (j = 0; j < 1; j++) {
+
+            var wrapper = document.createElement('div');
+            wrapper.className = 'wrapper';
+            document.getElementsByClassName('page')[i].appendChild(wrapper);
+
+            var randomDiv = Math.floor((Math.random() * 5) + 1);
+
+            for (k = 0; k < randomDiv; k++) {
+
+                var randomColumn = Math.floor((Math.random() * 3) + 1);
+                var randomColumn1 = Math.floor((Math.random() * 3) + 1);
+                var randomRow = Math.floor((Math.random() * 4) + 1);
+                var randomRow1 = Math.floor((Math.random() * 4) + 1);
+
+                var div = document.createElement('div');
+                div.id = 'sketch-holder-' + i + "-" + k;
+                ids.push('sketch-holder-' + i + '-' + k);
+                div.style.gridColumn = randomColumn / randomColumn1;
+                div.style.gridRow = randomRow / randomRow1;
+                //  new sketch();
+
+                //  div.innerHTML = "Hello";
+                document.getElementsByClassName('wrapper')[i].appendChild(div);
+            }
+
+            var folio = document.createElement('div');
+            folio.innerText = i+1;
+            document.getElementsByClassName('wrapper')[i].appendChild(folio);
+
+            //            }
+        }
+        createSketches(n);
+        console.log($(".wrapper div").length);
+        console.log(ids);
+
+    </script>
+</body>
+
+</html>

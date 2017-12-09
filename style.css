@@ -1,0 +1,21 @@
+.page {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.wrapper {
+    width: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.wrapper > div {
+    width: 5%;
+}
+canvas {
+    width: 100px;
+    !important;
+    height: 100px;
+    !important
+}
