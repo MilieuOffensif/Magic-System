@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+
+
+<div style="position:absolute; left:50vmin; top: 30vmin ; width: 500px; height: 500px ; overflow: scroll;">
+
+
+
+ <svg version="1.1" id="Calque_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 510.2 338.9" enable-background="new 0 0 510.2 338.9" xml:space="preserve">
+
+<!-- <path class="path" fill="none" stroke="#000000" stroke-width="1" stroke-miterlimit="10" d="M100.3,338.9 l177.4,-199.8l40,60l50,60Z"
+
+  /> -->
+<!-- <path class="path" fill="none" stroke="#000000" stroke-width="1" stroke-miterlimit="10" d="M12,12l-21,24,l-5,21,l0,24,l0,26,l-25,5,l-6,0,l-15,24,l-8,14,l-13,21,l0,24,l-3,10,l-11,12,l-24,8,l0,19,l-1,17"
+
+  /> 
+
+ -->
+
+
+
+
+
+
+
+
+
+</svg>
+</div>
+
+
+<script type="text/javascript">
+
+
+function faisMoiUnDessin (){
+var page = 15
+var coordonees = [[],[]];
+var M = []
+var posinegatif =[0,-1];
+var a = posinegatif[Math.round(Math.random())];
+var b = posinegatif[Math.round(Math.random())];
+
+var xO = Math.random()*5;
+var yO = Math.random()*5;
+
+M.push(xO);
+M.push(yO);
+
+var debut = M.join();
+
+for (var i = 0; i <page ; i++) {
+
+	var posinEgatif =[0,-1];
+var a1 = posinEgatif[Math.round(Math.random())];
+// var b1 = posinEgatif[Math.round(Math.random())];
+
+	var x = Math.random()*300;
+	coordonees[0].push(Math.floor(x));
+	var y = Math.random()*300;
+	coordonees[1].push(Math.floor(y));
+	
+
+			
+}
+
+
+console.log(coordonees);
+var couple = [];
+for (var i = 0; i < coordonees[0].length; i++) {
+	
+	couple.push(coordonees[0][i],coordonees[1][i]);
+}
+
+
+ dessin2= couple.join(" ");
+
+
+console.log(dessin2);
+
+var tracE = document.querySelector('svg');
+
+var dessin = document.createElementNS("http://www.w3.org/2000/svg",'polygon'); 
+// dessin.className+='path';
+dessin.setAttribute("fill","none");
+dessin.setAttribute("stroke","#000000");
+dessin.setAttribute("stroke-width","1");
+// dessin.setAttribute("stroke-miterlimit","10");
+// dessin2 = dessin2.replace(/,l/g,"l");
+
+dessin.setAttribute("points",dessin2);
+
+
+tracE.appendChild(dessin);
+
+
+
+}
+
+window.onload = faisMoiUnDessin();
+
+</script>
+
+</body>
+
+
+</html>
