@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+<body>
+
+
+
+
+
+<script type="text/javascript">
+var page = 15;
+
+function creerUnBloc (){
+for (var i = 0; i < page; i++) {
+
+	var corp = document.querySelector('body');
+	var divDessin = document.createElement('div');
+
+	divDessin.setAttribute("style","position:relative ; width: 100px; height: 100px ; overflow: none; float: left;");
+
+
+	var traceSvg = document.createElementNS("http://www.w3.org/2000/svg",'svg');
+	divDessin.appendChild(traceSvg);
+
+
+	corp.appendChild(divDessin);
+
+	faisMoiUnDessin(i,corp,divDessin);
+
+
+
+
+	
+}
+}
+
+
+function faisMoiUnDessin (i, corp, divDessin){
+
+console.log(corp.children[i]);
+
+var coordonees = [[],[],[],[],[],[]];
+var M = []
+var posinegatif =[0,-1];
+var a = posinegatif[Math.round(Math.random())];
+var b = posinegatif[Math.round(Math.random())];
+
+var xO = Math.random()*100;
+var yO = Math.random()*100;
+
+M.push(xO);
+M.push(yO);
+
+var debut = M.join();
+
+
+
+for (var k = 0; k <i ; k++) {
+
+	var posinEgatif =[0,-1];
+var a1 = posinEgatif[Math.round(Math.random())];
+// var b1 = posinEgatif[Math.round(Math.random())];
+
+	
+
+	var c1x= Math.random()*100;
+	coordonees[0].push(Math.floor(c1x)*a1);
+	var c2y=Math.random()*100;
+	coordonees[1].push(Math.floor(c2y));
+	var d1x=Math.random()*100;
+	coordonees[2].push(Math.floor(d1x));
+	var d2y=Math.random()*100;
+	coordonees[3].push(Math.floor(d2y)*a1);
+	var x = Math.random()*100;
+	coordonees[4].push(Math.floor(x));
+	var y = Math.random()*100;
+	coordonees[5].push(Math.floor(y));
+
+			
+}
+
+
+
+console.log(coordonees);
+var couple = [];
+for (var j = 0; j < coordonees[0].length; j++) {
+	
+	couple.push("C"+coordonees[0][j],coordonees[1][j],coordonees[2][j],coordonees[3][j],coordonees[4][j],coordonees[5][j]);
+}
+
+
+ dessin2= couple.join(",");
+
+
+console.log(dessin2);
+
+// var tracE = document.querySelector('svg');
+
+var dessin = document.createElementNS("http://www.w3.org/2000/svg",'path'); 
+// dessin.className+='path';
+dessin.setAttribute("fill","none");
+dessin.setAttribute("stroke","#000000");
+dessin.setAttribute("stroke-width","1");
+// dessin.setAttribute("stroke-miterlimit","10");
+dessin2 = dessin2.replace(/,C/g,"C");
+
+dessin.setAttribute("d","M"+M+","+dessin2+"Z");
+
+
+// tracE.appendChild(dessin);
+var divSvg = divDessin.children[0];
+divSvg.appendChild(dessin);
+
+
+
+}
+
+window.onload = creerUnBloc();
+
+</script>
+
+</body>
+
+
+</html>
